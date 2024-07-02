@@ -12,7 +12,5 @@ public class GameSceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<View>().FromInstance(_view);
-        Container.Bind<Presenter>().FromInstance(_presenter);
-        Container.Bind<Model>().FromInstance(_model);
     }
 }

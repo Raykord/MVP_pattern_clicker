@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class StandartView : View
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] GameObject _target;
+   
+    [SerializeField] private PlayerData _playerData;
+
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Model model = new StandartModel(this, _playerData);
+        Presenter presenter = new StandartPresender(model);
+
+        Init(presenter);
     }
+
+
+    
 
     // Update is called once per frame
     void Update()
